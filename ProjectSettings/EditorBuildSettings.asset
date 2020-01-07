@@ -1,0 +1,14 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Bingo.unity
+    guid: 84e24b6c1d3618a4db7e12e29df90365
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: 39bebf1db6d060041a90ea8c5d4a1eac
+  m_configObjects: {}
