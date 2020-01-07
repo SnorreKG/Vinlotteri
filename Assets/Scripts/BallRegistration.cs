@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BallRegistration : MonoBehaviour
 {
+    public GameObject confettiParticles;
 
     private GameObject gameManager;
     private Info gameManagerInfo;
@@ -42,6 +43,7 @@ public class BallRegistration : MonoBehaviour
     {
         gameManagerInfo.GetNumber(_number);
         isRegistered = true;
+        Instantiate(confettiParticles, transform.position, Quaternion.identity);
         //RemoveBall();
     }
 

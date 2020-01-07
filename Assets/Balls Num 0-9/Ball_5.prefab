@@ -126,4 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71aa736c30653247959e6d5da02f6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  confettiParticles: {fileID: 8688751205251390219, guid: ae6b5b1b9a6c26049813c2580df01d0f,
+    type: 3}
   _number: 5

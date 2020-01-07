@@ -5,11 +5,6 @@ using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
 {
-    public Toggle autoStartToggle;
-    private bool autoStartIsOn;
-    private int autoStartIsOnInt;
-    private string autoStartPlayerprefsCode = "AST";
-
 
     public InputField lowestNumberInputField;
     public InputField highestNumberInputField;
@@ -22,16 +17,6 @@ public class Settings : MonoBehaviour
 
     private void Start()
     {
-        autoStartIsOnInt = PlayerPrefs.GetInt(autoStartPlayerprefsCode);
-        if (autoStartIsOnInt == 1)
-        {
-            autoStartIsOn = true;
-        }
-        else if (autoStartIsOnInt == 0)
-        {
-            autoStartIsOn = false;
-        }
-        autoStartToggle.isOn = autoStartIsOn;
 
 
         lowestNumberString = PlayerPrefs.GetString(lowestNumberPlayerprefsCode);
@@ -42,7 +27,9 @@ public class Settings : MonoBehaviour
     }
     void Update()
     {
-        
+       
+
+
     }
 
     public void ReciveStringMinimum()
@@ -57,18 +44,5 @@ public class Settings : MonoBehaviour
         PlayerPrefs.SetString(highestNumberPlayerprefsCode, highestNumberString);
     }
 
-    public void ReciveAutoStartToggle()
-    {
-        autoStartIsOn = autoStartToggle.isOn;
-        if(autoStartIsOn == true)
-        {
-            autoStartIsOnInt = 1;
-        }
-        else if (autoStartIsOn == false)
-        {
-            autoStartIsOnInt = 0;
-        }
-        PlayerPrefs.SetInt(autoStartPlayerprefsCode, autoStartIsOnInt);
-    }
 
 }

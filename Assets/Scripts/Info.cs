@@ -5,12 +5,20 @@ using UnityEngine.UI;
 
 public class Info : MonoBehaviour
 {
-   
+    public ParticleSystem confetti_1;
+    public ParticleSystem confetti_2;
+
+    public GameObject resultCamera;
+    public GameObject startCamera;
+
+    public GameObject trapDoor;
+    public GameObject trapDoorButton;
+    public GameObject ballDetectorStart;
+
     private int number_win;
 
     private bool roundComplete;
 
-    private bool autoStartOn;
     private float autoStartTimerFloat;
     public float timeForAutoStart = 15f;
 
@@ -29,8 +37,11 @@ public class Info : MonoBehaviour
 
     void Start()
     {
-        StartRound();
+        SwitchToIntroCamera();
+
         roundComplete = false;
+        trapDoor.SetActive(true);
+        trapDoorButton.SetActive(true);
 
         NextRoundLoadingBar.SetActive(false);
         LoadLoadingBar = false;
@@ -80,8 +91,8 @@ public class Info : MonoBehaviour
         int _highRanNumberInt = int.Parse(_highRanNumberString);
 
         number_win = Random.Range(_lowRanNumberInt, _highRanNumberInt);
-        
 
+        SwitchToResultCamera();
         SpawnSpheres();
          
     }
@@ -105,7 +116,6 @@ public class Info : MonoBehaviour
             }
             win_numbers.Add(_currentWinDigit);
 
-           
         }
 
         for (int i = 0; i < win_numbers.Count; i++)
@@ -119,15 +129,9 @@ public class Info : MonoBehaviour
         roundComplete = true;
         autoStartTimerFloat = timeForAutoStart;
 
-        int _autoStartOnInt = PlayerPrefs.GetInt("AST");
-        if (_autoStartOnInt == 1)
-        {
-            autoStartOn = true;
-        }
-        else if (_autoStartOnInt == 0)
-        {
-            autoStartOn = false;
-        }
+        confetti_1.Play();
+        confetti_2.Play();
+
     }
 
     private void AutoStartTimer()
@@ -157,5 +161,24 @@ public class Info : MonoBehaviour
 
 
         LoadingBarFilledTexture.sizeDelta = new Vector2(autoStartTimerFloat * 10, LoadingBarFilledTexture.sizeDelta.y);
+    }
+
+    public void StartButtonClick()
+    {
+        trapDoor.SetActive(false);
+        trapDoorButton.SetActive(false);
+    }
+
+    public void SwitchToIntroCamera()
+    {
+        resultCamera.SetActive(false);
+        startCamera.SetActive(true);
+
+    }
+
+    public void SwitchToResultCamera()
+    {
+        resultCamera.SetActive(true);
+        startCamera.SetActive(false);
     }
 }
