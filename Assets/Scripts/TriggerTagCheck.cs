@@ -8,7 +8,7 @@ public class TriggerTagCheck : MonoBehaviour
 
     public GameObject gameManager;
 
-    private int tagsToCheck = 4;
+    public int tagsToCheck = 4;
     private int tagsChecked;
     public List<string> tagsThatChecks = new List<string>();
     void Start()

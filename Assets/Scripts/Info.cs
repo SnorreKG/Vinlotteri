@@ -132,6 +132,9 @@ public class Info : MonoBehaviour
         confetti_1.Play();
         confetti_2.Play();
 
+        confetti_1.gameObject.GetComponent<AudioSource>().Play();
+        confetti_2.gameObject.GetComponent<AudioSource>().Play();
+
     }
 
     private void AutoStartTimer()
